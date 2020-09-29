@@ -17,14 +17,38 @@ fetch(restaurantAPI, API_KEY)
     .then((data) => {
         data.restaurants.forEach((data) => {
             console.log(data.restaurant);
-            document.querySelector('.main-box').innerHTML += `
-            <div class="restaurant">
-            <img class="restaurant-image" src="${data.restaurant.thumb}"/>
-            <p class="restaurant-name">${data.restaurant.name}</p>
-            <p class="restaurant-address">Address: ${data.restaurant.location.address}</p>
-            <p class="restaurant-rating">Rating: ${data.restaurant.user_rating.aggregate_rating} ${data.restaurant.user_rating.rating_text}</p>
-            <p class="restaurant-price">Average cost for two persons: ${data.restaurant.average_cost_for_two}</p>
-            </div>`; 
+            const getRestaurantInfo = generateRestaurantInfo(data);
+            console.log(getRestaurantInfo);
         })
     });
 
+class RestaurantTemplate {
+    constructor(restaurantImage, restaurantName, restaurantAddress, restaurantRating, restaurantAverageCost,) {
+        this.restaurantImage = restaurantImage;
+        this.restaurantName = restaurantName;
+        this.restaurantAddress = restaurantAddress;
+        this.restaurantRating = restaurantRating;
+        this.restaurantAverageCost = restaurantAverageCost;
+    };
+};
+
+const generateRestaurantInfo = data => {
+    const restaurantInfo = new RestaurantTemplate(
+        data.restaurant.thumb,
+        data.restaurant.name,
+        data.restaurant.location.adress,
+        data.restaurant.user_rating.aggregate_rating,
+        data.restaurant.average_cost_for_two,
+    );
+    return restaurantInfo;
+};
+
+
+            // document.querySelector('.main-box').innerHTML += `
+            // <div class="restaurant">
+            // <img class="restaurant-image" src="${data.restaurant.thumb}"/>
+            // <p class="restaurant-name">${data.restaurant.name}</p>
+            // <p class="restaurant-address">Address: ${data.restaurant.location.address}</p>
+            // <p class="restaurant-rating">Rating: ${data.restaurant.user_rating.aggregate_rating} ${data.restaurant.user_rating.rating_text}</p>
+            // <p class="restaurant-price">Average cost for two persons: ${data.restaurant.average_cost_for_two}</p>
+            // </div>`; 
