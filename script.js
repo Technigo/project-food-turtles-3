@@ -8,7 +8,7 @@ const cityID = 276; // Dallas, TX
 const cuisineID = 83; // Seafood
 
 const restaurantAPI = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityID}&entity_type=city&cuisines=${cuisineID}`;
-const restaurantArticle = document.querySelectorAll('.article-main-box');
+const restaurantArticle = document.querySelectorAll('.main-box');
 
 
 fetch(restaurantAPI, API_KEY)
@@ -23,7 +23,7 @@ fetch(restaurantAPI, API_KEY)
     });
 
 class RestaurantTemplate {
-    constructor(restaurantImage, restaurantName, restaurantAddress, restaurantRating, restaurantAverageCost,) {
+    constructor(restaurantImage, restaurantName, restaurantAddress, restaurantRating, restaurantAverageCost) {
         this.restaurantImage = restaurantImage;
         this.restaurantName = restaurantName;
         this.restaurantAddress = restaurantAddress;
@@ -33,7 +33,7 @@ class RestaurantTemplate {
 };
 
 const generateRestaurantInfo = restaurants => {
-    const filteredRestaurants = restaurants.filter(item => item.restaurant.photo_count > 20);
+    const filteredRestaurants = restaurants.filter(item => item.restaurant.photo_count > 0);
     const restaurantInfo = filteredRestaurants.map(item => {
         return new RestaurantTemplate(
             item.restaurant.thumb,
@@ -47,7 +47,7 @@ const generateRestaurantInfo = restaurants => {
 };
 
 const getRestaurantHTML = restaurants => {
-    restaurants.forEach(item => {
+    restaurants.forEach((item, index) => {
         restaurantArticle[index].querySelector('.restaurant-image').src = item.restaurantImage;
         restaurantArticle[index].querySelector('.restaurant-name').innerText = item.restaurantName;
         restaurantArticle[index].querySelector('.restaurant-address').innerText = item.restaurantAddress;
