@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>See food in Dallas</title>
     <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="icon" type="image/png" href="./images/logo-black.png">
   </head>
   <body>
+
     <header class="header">
       <img class="header--image" src="./images/logo-black.png" />
       <div class="header--hamburger">
@@ -17,41 +19,20 @@
     </header>
 
     <section class="outer-wrapper">
+      <h1 class="wrapper-heading">Seafood in Dallas</h1>
       <div class="inner-wrapper">
         <article class="navigation-box">
-          <div class="price-slider"></div>
-          <div class="delivery-tablebooking"></div>
+          <div class="sorting">
+            <p>Sort by:</p>
+            <select class="sort-list" name="sort-list" id="sort-list" onchange=fetchSort(value)>
+              <option value="no-sorting">No sorting</option>
+              <option value="rating">Rating</option>
+              <option value="price">Price</option>
+            </select>
+          </div>
         </article>
 
         <article class="main-box" id="main-box">
-          <div class="restaurant">
-            <img src="" alt="" class="restaurant-image" />
-            <p class="restaurant-name"></p>
-            <p class="restaurant-address"></p>
-            <p class="restaurant-rating"></p>
-            <p class="restaurant-price"></p>
-          </div>
-          <div class="restaurant">
-            <img src="" alt="" class="restaurant-image" />
-            <p class="restaurant-name"></p>
-            <p class="restaurant-address"></p>
-            <p class="restaurant-rating"></p>
-            <p class="restaurant-price"></p>
-          </div>
-          <div class="restaurant">
-            <img src="" alt="" class="restaurant-image" />
-            <p class="restaurant-name"></p>
-            <p class="restaurant-address"></p>
-            <p class="restaurant-rating"></p>
-            <p class="restaurant-price"></p>
-          </div>
-          <div class="restaurant">
-            <img src="" alt="" class="restaurant-image" />
-            <p class="restaurant-name"></p>
-            <p class="restaurant-address"></p>
-            <p class="restaurant-rating"></p>
-            <p class="restaurant-price"></p>
-          </div>
           <div class="restaurant">
             <img src="" alt="" class="restaurant-image" />
             <p class="restaurant-name"></p>

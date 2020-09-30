@@ -17,20 +17,31 @@ body {
     justify-content: center;
     align-items: center;
     color: #43474a;
+    margin: 0;
 }
 
 /** Styling of header **/
 .header {
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
 }
 
 .header--image {
     width: 100px;
+    cursor: pointer;
 }
 
 .header--hamburger {
     width: 50px;
+    transition: transform .4s ease;
+}
+
+.header--hamburger:hover {
+    cursor: pointer;
+    transform: rotate(90deg);
 }
 
 .stroke {
@@ -46,51 +57,81 @@ body {
 
 /** Styling for the main data **/
 .outer-wrapper {
-    margin: 30px;
+    margin: auto;
+    width: 100%;
+}
+
+.wrapper-heading {
+    font-size: 50px;
+    padding: 0 30px;
+    margin: 0 0 20px 0;
+    text-align: center;
 }
 
 .inner-wrapper {
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    align-items: flex-start;
 }
 
 /** Styling of navigation bar to the left**/
 .navigation-box {
-    width: 900px;
-    height: 100vh;
-    background-color: #d6d4ce;
-    margin-left: 20px;
-    margin-top: 37px;
+    width: 250px;
+    height: 100%;
+    margin: 20px 0;
+    align-self: flex-start;
+}
+
+/* Styling of sort-list */
+.sorting {
+    margin: 0 30px;
+}
+
+.sorting p {
+    margin: 0 0 10px 0;
+}
+
+.sort-list {
+    padding: 5px 50px;
+}
+
+.option {
+    font-family: 'Rubik', sans-serif;
+    font-size: 10px;
+    text-align: left;
 }
 
 /** Styling for restaurants **/
 .main-box {
+    width: 80%;
+    margin: 20px;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
-    margin: 30px;
 }
 
 .restaurant {
     font-size: 12px;
-    margin-right: 6px;
-    margin-bottom: 20px;
-    width: 260px;
-    padding: 4px;
+    margin: 0 20px 20px;
+    width: 20%;
 }
 
 .restaurant-image {
-    height: 250px;
+    width: 95%;
+    height: auto;
+    margin: 0 0 10px 0;
 }
 
 .restaurant-name {
     font-weight: bold;
-    margin: 4px;
+    font-size: 14px;
 }
 
-.restaurant-image, .restaurant-address, .restaurant-rating, .restaurant-price {
-    margin: 4px;
+.restaurant-name, .restaurant-address, .restaurant-rating, .restaurant-price {
+    margin: 3px;
+}
+
+.restaurant-address, .restaurant-rating, .restaurant-price {
     color: #808487;
 }
 
@@ -103,64 +144,81 @@ body {
 }
 
 .footer {
+    margin: 10px 0;
     bottom: 0;
     position: relative;
+    text-align: center;
+    font-size: 12px; 
 }
 
-/*** MEDIA QUERIES ***/
-@media (max-width: 1023px) { /* Tablet devices */
+.footer--text {
+    margin: 5px;
+}
+
+/* ------------------------------------------------- MEDIA QUERIES ------------------------------------------------- ***/
+
+/* Tablet devices ------------------------------------------------- */
+@media (max-width: 1023px) { 
     .inner-wrapper {
-        display: flex;
+        width: 100%;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 30px;
-        width: 660px;
     }
 
     .navigation-box {
-        width: 620px;
+        width: 100%;
+        height: 10vh;
+        margin: 20px 0;
     }
 
     .main-box {
-        width: 620px;
-        display: flex;
-        flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
     }
 
     .restaurant {
-       width: 300px;
+       width: 25vw;
+       height: 350px;
+    }
+
+    .restaurant-image {
+        width: 25vw;
+        height: auto;
+    }
+
+    .restaurant-name {
+        font-size: 14px;
     }
 }
 
-@media (max-width: 667px) { /* Mobile devices */
+/* Mobile devices ------------------------------------------------- */
+@media (max-width: 667px) {
     .inner-wrapper {
-        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width:  440px;
+    }
+
+    .wrapper-heading {
+        font-size: 30px;
     }
 
     .navigation-box {
-        width: 420px;
-    }
-
-    .main-box {
-        width: 420px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .restaurant {
-        width: 180px;
+        width: 100%;
+        height: 10vh;
     }
     
-    .restaurant-image {
-        height: 170px;
+    
+    .main-box {
+        width: 100%;
+        margin: 0;
     }
-}
+
+    .restaurant {
+        margin: 10px;
+        width: 40vw;
+    }
+
+    .restaurant-image {
+        width: 40vw;
+    }
+}  
